@@ -1,0 +1,125 @@
+nav {
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  transition: 0.3s ease-in-out;
+}
+
+nav.sticky {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #fff !important;
+  box-shadow: 0 0 15px #515151;
+}
+
+/* Sticky Navbar End */
+.navbar-brand {
+  font-size: 32px !important;
+}
+
+#navbarNav .navbar-nav .nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-nav .nav-item {
+  font-size: 18px;
+  padding-left: 18px;
+  padding-right: 18px;
+  transition: 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-item a {
+  font-size: 18px;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 8px;
+  margin-right: 8px;
+  color: var(--black-2);
+}
+
+.nav-active,
+.navbar-nav .nav-item a:hover {
+  color: var(--orange-1) !important;
+}
+
+.nav-link {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-active::before {
+  width: 100% !important;
+}
+
+.nav-link::before,
+.logo .nav-link::before {
+  content: "";
+  height: 2px;
+  background-color: var(--orange-1);
+  right: 0;
+  bottom: 0;
+  width: 0;
+  transition: width 0.3s ease-in-out;
+  position: absolute;
+}
+
+.nav-link:hover::before {
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.logo .nav-link:hover:before {
+  width: 0 !important;
+}
+
+/* Drop-Down Start */
+.drop {
+  position: relative;
+  z-index: 9999;
+}
+
+.drop .drop-menu {
+  padding: 12px !important;
+  overflow: hidden;
+  position: absolute;
+  top: 100%;
+  left: -20%;
+  display: none;
+  animation: dropmenu 1s ease forwards;
+  background-color: #ffffff66;
+  color: #515151;
+}
+
+.drop .drop-menu li {
+  list-style: none;
+  padding-right: 32px;
+}
+
+.drop .drop-menu li a {
+  display: block;
+  text-decoration: none;
+  padding: 10px;
+}
+
+@keyframes dropmenu {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: 20%;
+    background-color: white;
+    color: #000;
+  }
+}
+
+.drop:hover .drop-menu {
+  display: block;
+}
+
+.offcanvas {
+  z-index: 9999 !important;
+}
