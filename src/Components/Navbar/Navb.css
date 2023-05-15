@@ -1,4 +1,4 @@
-nav {
+/* nav {
   top: 0;
   left: 0;
   z-index: 99999;
@@ -12,7 +12,7 @@ nav.sticky {
   box-shadow: 0 0 15px #515151;
 }
 
-/* Sticky Navbar End */
+Sticky Navbar End
 .navbar-brand {
   font-size: 32px !important;
 }
@@ -75,7 +75,7 @@ nav.sticky {
   width: 0 !important;
 }
 
-/* Drop-Down Start */
+Drop-Down Start
 .drop {
   position: relative;
   z-index: 9999;
@@ -122,4 +122,46 @@ nav.sticky {
 
 .offcanvas {
   z-index: 9999 !important;
+} */
+
+.offcanvas__link {
+  padding: 10px 0;
+}
+.offcanvas__link a {
+  margin-top: 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.162);
+}
+.mobile-menu {
+}
+.navbar-icon {
+  display: none;
+  outline: none;
+  border: transparent;
+}
+@media screen and (max-width: 1024px) {
+  .navbar-icon {
+    display: block;
+    outline: none;
+    border: transparent;
+  }
+  .navbar-icon:focus {
+    display: block;
+    outline: none;
+    border: transparent;
+  }
+}
+.navbar-icon .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(117,218,180,1.000)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+
+.offcanvas__navbar {
+  /* border: 2px solid red; */
+  width: 260px;
+}
+@media screen and (max-width: 600px) {
+  .offcanvas__navbar {
+    /* border: 2px solid red; */
+    width: 200px;
+  }
 }

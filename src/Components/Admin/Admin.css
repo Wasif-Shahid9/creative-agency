@@ -1,0 +1,114 @@
+.admin__form {
+  margin-left: 250px;
+  overflow-x: hidden;
+}
+.admin__input {
+  width: 100%;
+  margin: 10px 0px;
+  padding: 10px;
+}
+.admin_btn {
+  --primary-color: #645bff;
+  --secondary-color: #fff;
+  --hover-color: #111;
+  --arrow-width: 10px;
+  --arrow-stroke: 2px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 20px;
+  color: var(--secondary-color);
+  padding: 0.8em 1.8em;
+  background: var(--primary-color);
+  display: flex;
+  transition: 0.2s background;
+  align-items: center;
+  gap: 0.6em;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.admin_btn .arrow-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin_btn .arrow {
+  margin-top: 1px;
+  width: var(--arrow-width);
+  background: var(--primary-color);
+  height: var(--arrow-stroke);
+  position: relative;
+  transition: 0.2s;
+}
+
+.admin_btn .arrow::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  border: solid var(--secondary-color);
+  border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+  display: inline-block;
+  top: -3px;
+  right: 3px;
+  transition: 0.2s;
+  padding: 3px;
+  transform: rotate(-45deg);
+}
+
+.admin_btn:hover {
+  background-color: var(--hover-color);
+}
+
+.admin_btn:hover .arrow {
+  background: var(--secondary-color);
+}
+
+button:hover .arrow:before {
+  right: 0;
+}
+@media screen and (max-width: 600px) {
+  .admin__form {
+    margin-left: 0px;
+    width: 60%;
+
+    margin: auto;
+  }
+  .admin__input {
+    width: 100%;
+  }
+}
+a {
+  text-decoration: none;
+  color: #111;
+}
+.accordion {
+  /* width: 100%; */
+
+  background-color: transparent !important;
+  box-shadow: none !important;
+  padding: 0;
+  /* border: 2px solid red; */
+}
+.accordion .MuiAccordionDetails-root {
+  background-color: transparent;
+  padding: 0px -10px;
+}
+.panel1a-header {
+  border: 2px solid red;
+}
+.upload-image {
+  margin-top: 30px;
+}
+.upload-image button {
+  border-radius: 30px;
+  background-color: #645bff;
+  padding: 5px 10px;
+  border: none;
+  margin-top: 10px;
+  color: white;
+}
+
+@media screen and(max-width: 425px){
+    
+}

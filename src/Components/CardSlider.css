@@ -1,0 +1,176 @@
+/* .swiper {
+  width: 100%;
+  height: 100%;
+} */
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.services-area {
+  position: relative;
+}
+@media (max-width: 767px) {
+  .services-area {
+    margin: 80px 0 50px;
+  }
+}
+.services-area .swiper-button-next,
+.services-area .swiper-button-prev {
+  top: 70%;
+  display: none;
+}
+@media (max-width: 767px) {
+  .services-area .swiper-button-next,
+  .services-area .swiper-button-prev {
+    display: none;
+  }
+}
+.services-area .swiper-button-next:after,
+.services-area .swiper-button-prev:after {
+  font-size: 20px;
+  height: 40px;
+  min-width: 40px;
+  color: #2a2a2a;
+  border: 1px solid #2a2a2a;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  -webkit-transition: all 0.5s ease-out 0s;
+  transition: all 0.5s ease-out 0s;
+}
+.services-area .swiper-button-next:hover:after,
+.services-area .swiper-button-prev:hover:after {
+  color: #e4e4e4;
+  background-color: #2a2a2a;
+}
+.services-area .swiper-button-next {
+  right: 7%;
+}
+@media only screen and (min-width: 1400px) and (max-width: 1699px),
+  only screen and (min-width: 1200px) and (max-width: 1399px),
+  only screen and (min-width: 992px) and (max-width: 1199px),
+  only screen and (min-width: 768px) and (max-width: 991px) {
+  .services-area .swiper-button-next {
+    right: 1%;
+  }
+}
+.services-area .swiper-button-prev {
+  left: 7%;
+}
+@media only screen and (min-width: 1400px) and (max-width: 1699px),
+  only screen and (min-width: 1200px) and (max-width: 1399px),
+  only screen and (min-width: 992px) and (max-width: 1199px),
+  only screen and (min-width: 768px) and (max-width: 991px) {
+  .services-area .swiper-button-prev {
+    left: 1%;
+  }
+}
+.swiper.services-slider {
+  padding: 5px;
+}
+.single-service {
+  position: relative;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  padding: 30px;
+  -webkit-transition: all 0.5s ease-out 0s;
+  transition: all 0.5s ease-out 0s;
+}
+.single-service span {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  font-weight: 700;
+  font-size: 50px;
+  -webkit-text-stroke: 2px #000;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.07;
+  line-height: 1;
+  -webkit-transition: all 0.5s ease-out 0s;
+  transition: all 0.5s ease-out 0s;
+}
+.single-service .icon {
+  margin-bottom: 20px;
+}
+.single-service .icon img {
+  height: 85px;
+}
+.single-service h4 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  color: #17161a;
+  margin-bottom: 10px;
+  -webkit-transition: all 0.5s ease-out 0s;
+  transition: all 0.5s ease-out 0s;
+}
+.single-service p {
+  font-weight: 400;
+  font-size: 16px;
+  color: #272727;
+  -webkit-transition: all 0.5s ease-out 0s;
+  transition: all 0.5s ease-out 0s;
+}
+.single-service .read-btn {
+  text-align: right;
+}
+.single-service .read-btn a {
+  position: relative;
+  font-weight: 400;
+  font-size: 17px;
+  color: #17161a;
+  text-align: right;
+  display: inline-block;
+  margin-top: 20px;
+  -webkit-transition: all 0.5s ease-out 0s;
+  transition: all 0.5s ease-out 0s;
+}
+.single-service .read-btn a:before {
+  position: absolute;
+  content: "";
+  left: -10px;
+  top: -3px;
+  border: 0.8px solid #75dab4;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  -webkit-animation-name: rotateme;
+  animation-name: rotateme;
+  -webkit-animation-duration: 5s;
+  animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-transition: all 0.2s cubic-bezier(0.98, 0.57, 1, 1) 0s;
+  transition: all 0.2s cubic-bezier(0.98, 0.57, 1, 1) 0s;
+}
+.single-service:hover {
+  background-color: #0d0d0f;
+}
+.single-service:hover span {
+  -webkit-text-stroke: 1px #75dab4;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.5;
+}
+.single-service:hover h4,
+.single-service:hover p {
+  color: #e4e4e4;
+}
+.single-service:hover .read-btn a {
+  color: #e4e4e4;
+}
+.read-btn a {
+  cursor: pointer;
+}

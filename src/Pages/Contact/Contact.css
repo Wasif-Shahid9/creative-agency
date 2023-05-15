@@ -1,0 +1,34 @@
+.circleIcon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 10px solid red;
+}
+.error-message {
+  /* border: 2px solid red; */
+  color: red;
+  margin-bottom: 20px;
+}
+.form-input {
+  padding: 12px;
+  outline: none;
+  margin-top: 35px;
+}
+
+.form-input:focus {
+  border: none;
+  box-shadow: 1px 0.5px 1px 1px black;
+}
+.form__btn {
+  padding: 10px 35px;
+  background-color: black;
+  color: white;
+  border-radius: 30px;
+}
+.newsError-message {
+  border-bottom: 2px solid red;
+  color: white;
+  display: inline-block;
+  margin-top: 10px;
+  
+}

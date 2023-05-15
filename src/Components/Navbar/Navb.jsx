@@ -1,132 +1,181 @@
-import Button from "react-bootstrap/Button";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import logo from "../../template/assets/img/logo.svg";
+import darklogo from "../../template/assets/img/logo-dark.svg";
+
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { Link } from "react-router-dom";
 import "./Navb.css";
-import { useState } from "react";
 
 const Navb = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleMobileMenuClick = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-white w-100 position-sticky">
-        <div className="container">
-          <a className="navbar-brand pt-0 d-lg-none" href="#">
-            <img src="./images/logo/logo.png" alt="" />
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="offcanvas"
-            href="#offcanvasExample"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div
-            className="collapse navbar-collapse justify-content-center"
-            id="navbarNav"
-          >
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link to="">Home</Link>
-              </li>
-              <li className="nav-item">
-                <Link to="">Home</Link>
-              </li>
-              <li className="nav-item">
-                <Link to="">Home</Link>
-              </li>
-              <li className="nav-item">
-                <Link to="">Home</Link>
-              </li>
-              <li className="nav-item logo d-none d-md-none d-lg-block fw-bold">
-                <a className="nav-link fs-3" href="index.html">
-                  <img src="./images/logo/logo.png" />
-                </a>
-              </li>
-              <li className="nav-item drop">
-                <a className="nav-link" href="destination.html">
-                  Destination
-                </a>
-                <ul className="drop-menu">
-                  <Link to="">Home</Link>
-                  <Link to="">Home</Link>
-                  <Link to="">Home</Link>
-                  <Link to="">Home</Link>
-                </ul>
-              </li>
-              <li className="nav-item drop">
-                <a className="nav-link" href="shop.html">
-                  Pages
-                </a>
-                <ul className="drop-menu">
-                  <li>
-                    <Link to="">Home</Link>
-                  </li>
-                </ul>
-              </li>
-              <li className="nav-item">
-                <Link to="">Home</Link>
-              </li>
-              <li className="nav-item">
-                <Link to="">Home</Link>
-              </li>
-            </ul>
+      <header
+        className={`header-area position_top ${
+          mobileMenuOpen ? "mobile-menu-open" : ""
+        }`}
+      >
+        <div className="site-logo">
+          <div className="logo">
+            <Link to="/">
+              <img src={logo} alt="image" />
+            </Link>
           </div>
         </div>
-        {/* OFFCANVAs */}
-        {/* <div className="offcanvas offcanvas-start" id="offcanvasExample">
-            <div className="offcanvas-header">
-                <h5 className="offcanvas-title" id="offcanvasExampleLabel"><a className="navbar-brand pt-0" href="#"><img src="./images/logo/logo.png"/></a></h5>
-                <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+        <div className={`main-menu ${mobileMenuOpen ? "active" : ""}`}>
+          <nav className="main-nav">
+            <div className="mobile-menu-logo">
+              <Link to="/">
+                <img src="assets/img/logo-dark.svg" alt="" />
+              </Link>
+              <div className="remove" onClick={handleMobileMenuClick}>
+                <i className="bi bi-plus-lg"></i>
+              </div>
             </div>
-            <div className="offcanvas-body">
-                <div className="dropdown">
-                    <ul className="navbar-nav">
-                        <li className="nav-item p-2">
-                            <a className="nav-link nav-active" href="index.html">Home</a>
-                        </li>
-                        <li className="nav-item p-2">
-                            <a className="nav-link" href="about.html">About</a>
-                        </li>
-                        <li className="nav-item p-2">
-                            <a className="nav-link" href="service.html">Services</a>
-                        </li>
-                        <li className="nav-item p-2">
-                            <a className="nav-link" href="gallery.html">Gallery</a>
-                        </li>
-                        <li className="nav-item logo d-none d-md-none d-lg-block fw-bold">
-                            <a className="nav-link fs-3" href="index.html"><img src="./images/logo/logo.png"/></a>
-                        </li>
-                        <li className="nav-item drop p-2">
-                            <a className="nav-link dropdown-toggle" id="dropdownMenuButton"
-                            data-bs-toggle="dropdown" href="destination.html">Destination</a>
-                            <ul className="dropdown-menu">
-                                <li><a className="dropdown-item" href="hazards.html">Hazards</a></li>
-                                <li><a className="dropdown-item" href="sheltering.html">Sheltering</a></li>
-                                <li><a className="dropdown-item" href="techniques.html">Techniques</a></li>
-                                <li><a className="dropdown-item" href="history.html">History</a></li>
-                            </ul>
-                        </li>
-                        <li className="nav-item p-2">
-                            <a className="nav-link" href="shop.html">Pages</a>
-                        </li>
-                        <li className="nav-item p-2">
-                            <a className="nav-link" href="blog.html">Blog</a>
-                        </li>
-                        <li className="nav-item p-2">
-                            <a className="nav-link" href="contact.html">Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
+            <ul>
+              <li className="has-child active">
+                <Link to="/">Home</Link>
+                <i className="bi bi-chevron-down"></i>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              <li>
+                <Link to="/service">Service</Link>
+                <i className="bi bi-chevron-down"></i>
+                <ul className={`sub-menu ${mobileMenuOpen ? "active" : ""}`}>
+                  {/* <li>
+                  <Link to="/service">Service</Link>
+                </li> */}
+                </ul>
+              </li>
+              <li>
+                <Link to="/project">Project</Link>
+                <i className="bi bi-chevron-down"></i>
+              </li>
+              <li>
+                <Link to="/contact">Contact</Link>
+              </li>
+            </ul>
+            <div className="get-qoute d-flex justify-content-center d-lg-none d-block pt-50">
+              <div className="cmn-btn">
+                <div className="line-1"></div>
+                <div className="line-2"></div>
+                <Link to="/contact">Get A Quote</Link>
+              </div>
             </div>
-        </div> */}
-      </nav>
+          </nav>
+        </div>
+        <div className="nav-right">
+          <div className="get-qoute">
+            <div className="cmn-btn">
+              <div className="line-1"></div>
+              <div className="line-2"></div>
+              <Link to="/contact">Get A Quote</Link>
+            </div>
+          </div>
+          <div className="mobile-menu">
+            {/* <a
+              href="javascript:void(0)"
+              className={`cross-btn ${mobileMenuOpen ? "active" : ""}`}
+              onClick={handleMobileMenuClick}
+            >
+              <span className="cross-top"></span>
+              <span className="cross-middle"></span>
+              <span className="cross-bottom"></span>
+    
+            </a> */}
+            {[false].map((expand) => (
+              <Navbar key={expand} bg="" expand={expand} className="   mb-3">
+                <Container fluid>
+                  <Navbar.Brand href="#"></Navbar.Brand>
+                  <Navbar.Toggle
+                    className="navbar-icon"
+                    aria-controls={`offcanvasNavbar-expand-${expand}`}
+                  />
+                  <Navbar.Offcanvas
+                    id={`offcanvasNavbar-expand-${expand}`}
+                    aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+                    placement="start"
+                    className="offcanvas__navbar"
+                  >
+                    <Offcanvas.Header closeButton>
+                      <Offcanvas.Title
+                        id={`offcanvasNavbarLabel-expand-${expand}`}
+                      >
+                        <img src={darklogo} alt="Error" />
+                      </Offcanvas.Title>
+                    </Offcanvas.Header>
+                    <Offcanvas.Body>
+                      <Nav className="justify-content-end  pe-3 offcanvas__link">
+                        <Link to="/">Home</Link>
+                        <Link to="/about">About Us</Link>
+                        <Link to="/service">Service</Link>
+                        <Link to="/project">Project</Link>
+                        <Link to="/contact">Contact</Link>
+                        <div className="get-qoute-abc">
+                          <div className="cmn-btn">
+                            <div className="line-1"></div>
+                            <div className="line-2"></div>
+                            <Link to="/contact">Get A Quote</Link>
+                          </div>
+                        </div>
+                      </Nav>
+                    </Offcanvas.Body>
+                  </Navbar.Offcanvas>
+                </Container>
+              </Navbar>
+            ))}
+          </div>
+        </div>
+      </header>
     </>
   );
 };
 
 export default Navb;
+//  import Button from "react-bootstrap/Button";
+//  import Container from "react-bootstrap/Container";
+//  import Form from "react-bootstrap/Form";
+//  import Nav from "react-bootstrap/Nav";
+//  import Navbar from "react-bootstrap/Navbar";
+//  import NavDropdown from "react-bootstrap/NavDropdown";
+//  import Offcanvas from "react-bootstrap/Offcanvas";
+
+//  function OffcanvasExample() {
+//    return (
+//      <>
+//        {[false].map((expand) => (
+//          <Navbar key={expand} bg="" expand={expand} className="mb-3">
+//            <Container fluid>
+//              <Navbar.Brand href="#"></Navbar.Brand>
+//              <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+//              <Navbar.Offcanvas
+//                id={`offcanvasNavbar-expand-${expand}`}
+//                aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+//                placement="start"
+//              >
+//                <Offcanvas.Header closeButton>
+//                  <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+//                    Offcanvas
+//                  </Offcanvas.Title>
+//                </Offcanvas.Header>
+//                <Offcanvas.Body></Offcanvas.Body>
+//              </Navbar.Offcanvas>
+//            </Container>
+//          </Navbar>
+//        ))}
+//      </>
+//    );
+//  }
+
+//  export default OffcanvasExample;

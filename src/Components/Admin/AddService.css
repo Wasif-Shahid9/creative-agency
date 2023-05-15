@@ -1,0 +1,18 @@
+.addServices__form {
+  width: 90%;
+  /* margin: auto; */
+  padding: 40px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+
+  margin-top: 80px;
+}
+.addServices__form .heading{
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.addServices__input {
+  width: 100%;
+  margin: 10px 0px;
+  padding: 10px;
+}

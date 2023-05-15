@@ -1,0 +1,35 @@
+.table {
+  margin-top: 80px;
+}
+.table__head {
+  background-color: rgb(231, 231, 231);
+  color: rgb(141, 187, 147);
+}
+.table__head tr {
+}
+
+.table td {
+  padding: 20px 10px;
+}
+
+.viewDelete__btn {
+  padding: 3px 10px;
+  border-radius: 30px;
+  outline: none;
+  background-color: rgb(144, 52, 52);
+  color: white;
+  border: none;
+}
+.table__icon {
+  width: 350px;
+  height: 30px;
+  object-fit: contain;
+}
+.viewUpdate__btn {
+  padding: 3px 10px;
+  border-radius: 30px;
+  outline: none;
+  background-color: rgb(231, 231, 231);
+  color: rgb(45, 182, 65);
+  border: none;
+}

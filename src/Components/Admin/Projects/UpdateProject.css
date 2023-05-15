@@ -1,0 +1,21 @@
+.updateproject__form {
+  margin-left: 250px;
+}
+.updateproject__input {
+  width: 100%;
+  padding: 10px;
+}
+@media screen and (max-width: 1199px) {
+  .updateproject__form {
+    margin-left: 0px;
+    margin-top: 150px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .updateproject__form {
+    margin-left: 0px;
+    margin-top: 0;
+    width: 90%;
+    margin: auto;
+  }
+}

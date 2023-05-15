@@ -1,0 +1,18 @@
+.addProject__form {
+  margin-top: 100px;
+  overflow-x: hidden;
+}
+.addproject__input {
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 80%;
+}
+@media screen and (max-width: 599px) {
+  .addProject__form {
+    margin-top: -10px;
+    overflow-x: hidden;
+    /* border: 2px solid red; */
+    margin: auto;
+    width: 90%;
+  }
+}

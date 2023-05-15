@@ -1,0 +1,15 @@
+.form {
+  /* border: 2px solid red; */
+
+  margin-top: 100px;
+}
+.partner__input {
+
+}
+
+@media screen and (max-width: 599px){
+  .form {
+
+    margin: auto;
+  }
+}

@@ -1,0 +1,28 @@
+.editAbout__form {
+  margin-top: 100px;
+  overflow-x: hidden;
+  /* border: 2px solid red; */
+}
+.editAbout__form__2 {
+  margin-left: 300px;
+  width: 100%;
+}
+.editAbout__input {
+  width: 100%;
+  margin: 10px 0px;
+  padding: 10px;
+}
+
+@media screen and (max-width: 576px) {
+  .editAbout__form {
+    margin-top: 0px;
+    overflow-x: hidden;
+    /* border: 2px solid red; */
+    width: 70%;
+    margin: auto;
+  }
+  .editAbout__head {
+    margin-top: 14px;
+  
+  }
+}

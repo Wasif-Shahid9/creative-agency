@@ -1,0 +1,6 @@
+.addServices__icon-preview,
+.addServices__image-preview {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
