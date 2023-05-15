@@ -59,10 +59,10 @@ const UpdateProject = () => {
   return (
     <>
       <Grid container>
-        <Grid item xs={12} md={4} lg={3}>
+        <Grid item xs={12} sm={4} md={4} lg={3}>
           <NestedList />
         </Grid>
-        <Grid item xs={12} md={8} lg={9} container>
+        <Grid item xs={12} sm={8} md={8} lg={9} container>
           <form className="addServices__form">
             <div className="row">
               <div className="col-lg-6 col-sm-6">

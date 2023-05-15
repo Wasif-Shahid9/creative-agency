@@ -19,3 +19,12 @@
     margin: auto;
   }
 }
+@media screen and (max-width: 600px){
+  .addServices__form {
+    width: 90%;
+    /* margin: auto; */
+    padding: 40px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    margin-top: 9;
+  }
+}

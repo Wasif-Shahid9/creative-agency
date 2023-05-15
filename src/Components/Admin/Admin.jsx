@@ -40,6 +40,9 @@ import {
   uploadBytes,
 } from "firebase/storage";
 import { storage } from "../../firebase";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { Grid } from "@mui/material";
 
 const drawerWidth = 240;
 
@@ -71,17 +74,7 @@ function Admin(props) {
 
   //     await addDoc(dataCollection, {
   //       title: title,
-  //       detail: detail,
-  //       icons: icon,
-  //       img: image,
-  //     });
-  //     alert("Message Sent Successfully");
-  //   } else {
-  //     alert("Please select an image and icon to upload.");
-  //   }
-  // };
 
-  // Form
 
   const handleAddService = async (e) => {
     e.preventDefault();
@@ -115,27 +108,16 @@ function Admin(props) {
       alert("Please select an image and icon to upload.");
     }
   };
-
-  ////////////////////////// Firebase End
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+  const editorConfig = {
+    placeholder: "Detail",
   };
 
-  const drawer = (
-    <div>
-      <NestedList />
-    </div>
-  );
+  ////////////////////////// Firebase End
 
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
 
   return (
     <>
-      <Box sx={{ display: "flex" }}>
+      {/* <Box sx={{ display: "flex" }}>
         <CssBaseline />
         <AppBar
           position="fixed"
@@ -204,7 +186,11 @@ function Admin(props) {
           <Typography paragraph></Typography>
           <Typography paragraph></Typography>
         </Box>
-      </Box>
+      </Box> */}
+
+      <Grid item xs={12} sm={4} md={4} lg={3}>
+        <NestedList />
+      </Grid>
 
       <form className="admin__form">
         <div className="row">
@@ -221,8 +207,8 @@ function Admin(props) {
             />
           </div>
 
-          <div className="col-lg-5 col-sm-6">
-            <label>Detail</label>
+          <div className="col-lg-5 col-sm-6 ckeditor-container">
+            {/* <label>Detail</label>
             <input
               className="admin__input"
               type="email"
@@ -230,16 +216,37 @@ function Admin(props) {
               placeholder="Enter Detail"
               value={detail}
               onChange={(e) => setDetail(e.target.value)}
+            /> */}
+            <label>Detail </label>
+            <CKEditor
+              className="admin__input"
+              type="email"
+              name="email"
+              value={detail || ""}
+              editor={ClassicEditor}
+              data=""
+              config={editorConfig}
+              onReady={(editor) => {
+                console.log(
+                  "CKEditor5 React Component is ready to use!",
+                  editor
+                );
+              }}
+              onChange={(event, editor) => {
+                const data = editor.getData();
+                setDetail(data);
+              }}
             />
           </div>
-          <div className="col-lg-6 col-sm-6 mt-3">
+
+          <div className="col-lg-5 col-sm-6 mt-3">
             <label>Icon</label> <br />
             <input
               type="file"
               onChange={(e) => setIconFile(e.target.files[0])}
             />
           </div>
-          <div className="col-lg-6 mt-3 col-sm-6">
+          <div className="col-lg-5 mt-3 col-sm-6">
             <label>Image</label> <br />
             <input
               type="file"

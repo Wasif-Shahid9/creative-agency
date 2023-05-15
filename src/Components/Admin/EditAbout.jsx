@@ -15,6 +15,8 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase";
 import { async } from "@firebase/util";
 import "./EditAbout.css";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 ///////// GET TO KNOW CODE START
 const EditAbout = () => {
@@ -32,7 +34,6 @@ const EditAbout = () => {
       console.log(data);
       setTitle(data.title);
       setDetail(data.detail);
-      setImage(data.image);
     };
     getData();
   }, []);
@@ -82,14 +83,14 @@ const EditAbout = () => {
   return (
     <>
       <Grid container>
-        <Grid item xs={12} sm = {4}  md={4} lg={3}>
+        <Grid item xs={12} sm={4} md={4} lg={3}>
           <NestedList />
         </Grid>
-        <Grid item xs={12} sm = {8}  md={8} lg={9} container>
+        <Grid item xs={12} sm={8} md={8} lg={9} container>
           <form className="editAbout__form ">
             <div className="row">
               <h4>GET TO KNOW</h4>
-              <div className="col-lg-4  col-sm-6">
+              <div className="col-lg-5 col-sm-6">
                 <label>Title</label>
                 <input
                   className="editAbout__input"
@@ -102,9 +103,9 @@ const EditAbout = () => {
                   }}
                 />
               </div>
-              <div className="col-lg-4 col-sm-6">
+              <div className="col-lg-5 col-sm-6">
                 <label>Detail</label>
-                <input
+                {/* <input
                   className="editAbout__input"
                   type="text"
                   name="detail"
@@ -112,6 +113,25 @@ const EditAbout = () => {
                   placeholder="Updated Details"
                   onChange={(e) => {
                     setDetail(e.target.value);
+                  }}
+                /> */}
+                <CKEditor
+                  className="editAbout__input"
+                  type="text"
+                  name="detail"
+                  value={detail}
+                  data={detail}
+                  editor={ClassicEditor}
+                  // config={editorConfig}
+                  onReady={(editor) => {
+                    console.log(
+                      "CKEditor5 React Component is ready to use!",
+                      editor
+                    );
+                  }}
+                  onChange={(event, editor) => {
+                    const data = editor.getData();
+                    setDetail(data);
                   }}
                 />
               </div>
@@ -142,14 +162,14 @@ const EditAbout = () => {
           </form>
         </Grid>
 
-        <Grid item xs={12} sm= {4} md={4} lg={3}>
+        <Grid item xs={12} sm={4} md={4} lg={3}>
           <h1></h1>
         </Grid>
-        <Grid item xs={12} sm = {8} md={8} lg={9} container>
+        <Grid item xs={12} sm={8} md={8} lg={9} container>
           <form className="editAbout__form ">
             <div className="row">
               <h4 className="editAbout__head">Why Choose Us</h4>
-              <div className="col-lg-4  col-sm-6">
+              <div className="col-lg-5  col-sm-6">
                 <label>Title</label>
                 <input
                   className="editAbout__input"
@@ -162,9 +182,9 @@ const EditAbout = () => {
                   }}
                 />
               </div>
-              <div className="col-lg-4 col-sm-6">
+              <div className="col-lg-5 col-sm-6">
                 <label>Detail</label>
-                <input
+                {/* <input
                   className="editAbout__input"
                   type="text"
                   name="detail"
@@ -172,6 +192,25 @@ const EditAbout = () => {
                   placeholder="Updated Details"
                   onChange={(e) => {
                     setChooseDetail(e.target.value);
+                  }}
+                /> */}
+                <CKEditor
+                  className="editAbout__input"
+                  type="text"
+                  name="detail"
+                  value={chooseDetail}
+                  data={detail}
+                  editor={ClassicEditor}
+                  // config={editorConfig}
+                  onReady={(editor) => {
+                    console.log(
+                      "CKEditor5 React Component is ready to use!",
+                      editor
+                    );
+                  }}
+                  onChange={(event, editor) => {
+                    const data = editor.getData();
+                    setChooseDetail(data);
                   }}
                 />
               </div>

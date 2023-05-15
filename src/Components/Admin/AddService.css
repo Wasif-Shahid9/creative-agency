@@ -6,7 +6,7 @@
 
   margin-top: 80px;
 }
-.addServices__form .heading{
+.addServices__form .heading {
   font-size: 30px;
   margin-bottom: 30px;
 }
@@ -15,4 +15,14 @@
   width: 100%;
   margin: 10px 0px;
   padding: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .addServices__form {
+    width: 90%;
+    padding: 10px;
+    margin-top: 0px;
+
+    margin: auto;
+  }
 }

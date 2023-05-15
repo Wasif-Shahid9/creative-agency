@@ -109,6 +109,10 @@ a {
   color: white;
 }
 
-@media screen and(max-width: 425px){
-    
+@media screen and(max-width: 425px) {
+}
+.admin__input .ck-placeholder {
+  font-size: 40px;
+  color: gray;
+  padding: 20px;
 }

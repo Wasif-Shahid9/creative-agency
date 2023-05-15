@@ -51,10 +51,10 @@ const AddProjects = () => {
         <Grid item xs={12} sm={4} md={4} lg={3}>
           <NestedList />
         </Grid>
-        <Grid item xs={12} sm={8} md={8} lg={9} container>
+        <Grid item xs={12} sm={8} md={9} lg={9} container>
           <form className="addProject__form">
             <div className="row">
-              <div className="col-lg-6 col-sm-6">
+              <div className="col-lg-5 col-md-6  col-sm-6">
                 <label>Title</label>
                 <br />
                 <input
@@ -64,7 +64,7 @@ const AddProjects = () => {
                   onChange={(e) => setTitle(e.target.value)}
                 />
               </div>
-              <div className="col-lg-6 col-sm-6">
+              <div className="col-lg-5 col-md-6 col-sm-6">
                 <label>Type</label>
                 <br />
                 <input
@@ -74,7 +74,7 @@ const AddProjects = () => {
                   onChange={(e) => setType(e.target.value)}
                 />
               </div>
-              <div className="col-lg-6 col-sm-6">
+              <div className="col-lg-5 col-md-6 col-sm-6">
                 <label>URL</label>
                 <br />
                 <input
@@ -84,7 +84,7 @@ const AddProjects = () => {
                   className="addproject__input"
                 />
               </div>
-              <div className="col-lg-6 col-sm-6">
+              <div className="col-lg-5 col-md-6 col-sm-6">
                 <label>image</label>
                 <br />
                 <input
@@ -93,7 +93,7 @@ const AddProjects = () => {
                 />
               </div>
 
-              <div className="col-lg-8 col-sm-6">
+              <div className="col-lg-5 col-md-6 col-sm-6">
                 <button
                   type="submit"
                   onClick={handleProjectAdd}

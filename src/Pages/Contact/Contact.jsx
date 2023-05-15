@@ -41,11 +41,6 @@ const Contact = () => {
   //   setLocation(doc.data());
   // });
 
-  const [name, setName] = useState("");
-  const [formEmail, setFormEmail] = useState("");
-  const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState("");
-
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Please enter your name."),
     email: Yup.string()
@@ -67,7 +62,7 @@ const Contact = () => {
     contactData();
   }, []);
 
-  const handleSubmit = async (values, { setSubmitting }) => {
+  const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     // alert("Data Sent");
     toast.success("Messge Sent Successfully.");
     try {
@@ -78,6 +73,7 @@ const Contact = () => {
         subject: values.subject,
         message: values.message,
       });
+      resetForm();
     } catch (error) {
       console.error("Error adding document: ", error);
     }

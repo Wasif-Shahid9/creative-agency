@@ -158,7 +158,20 @@ const ViewServices = () => {
             </Table>
           </Grid>
         ) : (
-          <p>Loading</p>
+          <p
+            style={{
+              height: "80vh",
+              width: "100%",
+              // backgroundColor: "black",
+              color: "white",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              fontSize: "30px",
+            }}
+          >
+            Loading.......
+          </p>
         )}
       </Grid>
     </>

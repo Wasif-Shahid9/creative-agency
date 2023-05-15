@@ -17,12 +17,10 @@
   .editAbout__form {
     margin-top: 0px;
     overflow-x: hidden;
-    /* border: 2px solid red; */
     width: 70%;
     margin: auto;
   }
   .editAbout__head {
     margin-top: 14px;
-  
   }
 }
