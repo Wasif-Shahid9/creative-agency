@@ -25,6 +25,7 @@ const CardSlider = () => {
     const getUsers = async () => {
       const data = await getDocs(userCollection);
       setUser(data.docs.map((doc) => doc.data()));
+      console.log(7)
     };
     getUsers();
   }, []);

@@ -18,8 +18,32 @@ import "./EditAbout.css";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
-///////// GET TO KNOW CODE START
 const EditAbout = () => {
+  const [chooseTitle, setChooseTitle] = useState("");
+  const [chooseDetail, setChooseDetail] = useState("");
+
+  useEffect(() => {
+    const getData = async () => {
+      const dataReference = doc(dataCollection, "whay_chose_us");
+      const docData = await getDoc(dataReference);
+      const showData = docData.data();
+      console.log("Main Data", showData);
+      setChooseTitle(showData.title);
+      setChooseDetail(showData.detail);
+    };
+    getData();
+  }, []);
+  const handleChooseUpdate = async (e) => {
+    e.preventDefault();
+    const docRef = doc(dataCollection, "whay_chose_us");
+    await updateDoc(docRef, {
+      title: chooseTitle,
+      detail: chooseDetail,
+    });
+    alert("Data updated successfully!");
+  };
+
+  ///////// GET TO KNOW CODE START
   const [title, setTitle] = useState("");
   const [detail, setDetail] = useState("");
   const [image, setImage] = useState(null);
@@ -54,31 +78,7 @@ const EditAbout = () => {
       alert("Data updated successfully!");
     }
   };
-  ///////// GET TO KNOW CODE END
-
-  const [chooseTitle, setChooseTitle] = useState("");
-  const [chooseDetail, setChooseDetail] = useState("");
-
-  useEffect(() => {
-    const getData = async () => {
-      const dataReference = doc(dataCollection, "whay_chose_us");
-      const docData = await getDoc(dataReference);
-      const showData = docData.data();
-      console.log("Main Data", showData);
-      setChooseTitle(showData.title);
-      setChooseDetail(showData.detail);
-    };
-    getData();
-  }, []);
-  const handleChooseUpdate = async (e) => {
-    e.preventDefault();
-    const docRef = doc(dataCollection, "whay_chose_us");
-    await updateDoc(docRef, {
-      title: chooseTitle,
-      detail: chooseDetail,
-    });
-    alert("Data updated successfully!");
-  };
+  ///////// GET TO KNOW  END
 
   return (
     <>
@@ -89,8 +89,71 @@ const EditAbout = () => {
         <Grid item xs={12} sm={8} md={8} lg={9} container>
           <form className="editAbout__form ">
             <div className="row">
+              <h4 className="editAbout__head">Why Choose Us</h4>
+              <div className="col-lg-5 col-md-6  col-sm-12">
+                <label>Title</label>
+                <input
+                  className="editAbout__input"
+                  type="text"
+                  name="title"
+                  value={chooseTitle}
+                  placeholder="Update Title"
+                  onChange={(e) => {
+                    setChooseTitle(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="col-lg-5 col-md-6 col-sm-12">
+                <label>Detail</label>
+                {/* <input
+                  className="editAbout__input"
+                  type="text"
+                  name="detail"
+                  value={chooseDetail}
+                  placeholder="Updated Details"
+                  onChange={(e) => {
+                    setChooseDetail(e.target.value);
+                  }}
+                /> */}
+                <CKEditor
+                  className="editAbout__input"
+                  type="text"
+                  name="detail"
+                  value={chooseDetail}
+                  data={chooseDetail}
+                  editor={ClassicEditor}
+                  onChange={(event, editor) => {
+                    const data = editor.getData();
+                    setChooseDetail(data);
+                  }}
+                />
+              </div>
+            </div>
+            <div className="row mt-3">
+              <div className="col-lg-10">
+                <button
+                  type="submit"
+                  onClick={handleChooseUpdate}
+                  className="admin_btn"
+                >
+                  Update Data
+                  <div className="arrow-wrapper">
+                    <div className="arrow"></div>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </form>
+        </Grid>
+        <Grid item xs={12} sm={4} md={4} lg={3}>
+          <h1></h1>
+        </Grid>
+
+        <Grid item xs={12} sm={8} md={8} lg={9} container>
+          <form className="editAbout__form ">
+            <div className="row">
               <h4>GET TO KNOW</h4>
-              <div className="col-lg-5 col-sm-6">
+              <div className="col-lg-5 col-md-6 col-sm-12">
                 <label>Title</label>
                 <input
                   className="editAbout__input"
@@ -103,7 +166,7 @@ const EditAbout = () => {
                   }}
                 />
               </div>
-              <div className="col-lg-5 col-sm-6">
+              <div className="col-lg-5 col-md-6 col-sm-12">
                 <label>Detail</label>
                 {/* <input
                   className="editAbout__input"
@@ -122,13 +185,6 @@ const EditAbout = () => {
                   value={detail}
                   data={detail}
                   editor={ClassicEditor}
-                  // config={editorConfig}
-                  onReady={(editor) => {
-                    console.log(
-                      "CKEditor5 React Component is ready to use!",
-                      editor
-                    );
-                  }}
                   onChange={(event, editor) => {
                     const data = editor.getData();
                     setDetail(data);
@@ -136,7 +192,7 @@ const EditAbout = () => {
                 />
               </div>
 
-              <div className="col-lg-6 col-sm-6">
+              <div className="col-lg-6 col-md-6 col-sm-12">
                 <label className="mt-3">Image</label>
                 <br />
                 <input
@@ -150,76 +206,6 @@ const EditAbout = () => {
                 <button
                   type="submit"
                   onClick={handleUpdateAbout}
-                  className="admin_btn"
-                >
-                  Update Data
-                  <div className="arrow-wrapper">
-                    <div className="arrow"></div>
-                  </div>
-                </button>
-              </div>
-            </div>
-          </form>
-        </Grid>
-
-        <Grid item xs={12} sm={4} md={4} lg={3}>
-          <h1></h1>
-        </Grid>
-        <Grid item xs={12} sm={8} md={8} lg={9} container>
-          <form className="editAbout__form ">
-            <div className="row">
-              <h4 className="editAbout__head">Why Choose Us</h4>
-              <div className="col-lg-5  col-sm-6">
-                <label>Title</label>
-                <input
-                  className="editAbout__input"
-                  type="text"
-                  name="title"
-                  value={chooseTitle}
-                  placeholder="Update Title"
-                  onChange={(e) => {
-                    setChooseTitle(e.target.value);
-                  }}
-                />
-              </div>
-              <div className="col-lg-5 col-sm-6">
-                <label>Detail</label>
-                {/* <input
-                  className="editAbout__input"
-                  type="text"
-                  name="detail"
-                  value={chooseDetail}
-                  placeholder="Updated Details"
-                  onChange={(e) => {
-                    setChooseDetail(e.target.value);
-                  }}
-                /> */}
-                <CKEditor
-                  className="editAbout__input"
-                  type="text"
-                  name="detail"
-                  value={chooseDetail}
-                  data={detail}
-                  editor={ClassicEditor}
-                  // config={editorConfig}
-                  onReady={(editor) => {
-                    console.log(
-                      "CKEditor5 React Component is ready to use!",
-                      editor
-                    );
-                  }}
-                  onChange={(event, editor) => {
-                    const data = editor.getData();
-                    setChooseDetail(data);
-                  }}
-                />
-              </div>
-            </div>
-            <div className="row mt-3">
-              <div className="col-lg-10">
-                <button
-                  type="submit"
-                  onClick={handleChooseUpdate}
                   className="admin_btn"
                 >
                   Update Data

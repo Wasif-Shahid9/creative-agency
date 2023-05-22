@@ -31,7 +31,6 @@ import SendIcon from "@mui/icons-material/Send";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import StarBorder from "@mui/icons-material/StarBorder";
-
 import {
   getStorage,
   ref,
@@ -44,6 +43,9 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { Grid } from "@mui/material";
 
+// import { Bold, Italic } from "@ckeditor/ckeditor5-basic-styles";
+
+// import { stripTags } from "lodash";
 const drawerWidth = 240;
 
 function Admin(props) {
@@ -75,7 +77,7 @@ function Admin(props) {
   //     await addDoc(dataCollection, {
   //       title: title,
 
-
+  const navigate = useNavigate();
   const handleAddService = async (e) => {
     e.preventDefault();
     if (iconFile && imageFile) {
@@ -104,16 +106,23 @@ function Admin(props) {
       setImageFile(null);
 
       alert("Data send successfully!");
+      // history.push("/viewservices");
     } else {
       alert("Please select an image and icon to upload.");
     }
+    navigate("/viewservices");
   };
   const editorConfig = {
     placeholder: "Detail",
+    toolbar: ["bold", "italic"],
   };
 
   ////////////////////////// Firebase End
 
+  function removeTags(html) {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    return doc.body.textContent || "";
+  }
 
   return (
     <>
@@ -208,15 +217,6 @@ function Admin(props) {
           </div>
 
           <div className="col-lg-5 col-sm-6 ckeditor-container">
-            {/* <label>Detail</label>
-            <input
-              className="admin__input"
-              type="email"
-              name="email"
-              placeholder="Enter Detail"
-              value={detail}
-              onChange={(e) => setDetail(e.target.value)}
-            /> */}
             <label>Detail </label>
             <CKEditor
               className="admin__input"
@@ -234,7 +234,8 @@ function Admin(props) {
               }}
               onChange={(event, editor) => {
                 const data = editor.getData();
-                setDetail(data);
+                const plainText = removeTags(data);
+                setDetail(plainText);
               }}
             />
           </div>
@@ -254,6 +255,7 @@ function Admin(props) {
             />
           </div>
         </div>
+
         <button className="admin_btn" onClick={handleAddService}>
           Add Data
         </button>

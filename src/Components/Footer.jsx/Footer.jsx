@@ -20,6 +20,7 @@ const Footer = () => {
     const contactData = async () => {
       const location = await getContactUs("location");
       setLocation(location);
+      console.log("loaction...", location);
       const phone = await getContactUs("phone");
       setPhone(phone);
       const email = await getContactUs("email");
@@ -82,7 +83,7 @@ const Footer = () => {
                 <h4>Our Services</h4>
                 {user.map((data) => (
                   <ul className="footer-menu" key={data.id}>
-                    <li >
+                    <li>
                       <a
                         onClick={() =>
                           navigate("/servicedetail", { state: data })

@@ -74,10 +74,12 @@ const Home = () => {
   useEffect(() => {
     const getUsers = async () => {
       const slider = await getHomeSection("slider");
+      console.log("slider..", slider);
       setSliderData(slider);
       const price = await getHomeSection("price");
       setPriceHeading(price);
       const features = await getHomeSection("features");
+      console.log("features", features);
       setFeatureHeading(features);
       const client = await getHomeSection("clients");
       setClientHead(client);
@@ -171,6 +173,7 @@ const Home = () => {
         <section className="hero-area">
           <div className="ken-burns-slideshow">
             <img src={sliderData.image} alt="image" />
+            <img src={headerimg} alt="" />
           </div>
           <div className="verticale-social">
             <ul className="vertical-media">
@@ -190,11 +193,9 @@ const Home = () => {
               <div className="row">
                 <div className="col-lg-6">
                   <div className="hero-content">
-                    <h1>
-                      {/* Creative & Minimal<span>It Agency.</span> */}
-                      {sliderData.title}
-                    </h1>
+                    <h1>{sliderData.title}</h1>
                     <p>{sliderData.detail}</p>
+
                     <div className="buttons">
                       <div className="cmn-btn">
                         <div className="line-1"></div>
@@ -402,18 +403,20 @@ const Home = () => {
                       key={data.id}
                       className="col-md-6 col-lg-4 single-item "
                     >
-                      <div className="item-img">
-                        <a href="">
-                          <img src={data.image} alt="" />
-                        </a>
-                      </div>
-                      <div className="item-inner-cnt">
-                        <span> {data.detail} </span>
-                        <h4> {data.title} </h4>
-                        <div className="view-btn">
-                          {/* <Link to={data.url}>view details</Link> */}
+                      <a href="/" target="_blank">
+                        <div className="item-img">
+                          <a href="">
+                            <img src={data.image} alt="" />
+                          </a>
                         </div>
-                      </div>
+                        <div className="item-inner-cnt">
+                          <span> {data.detail} </span>
+                          <h4> {data.title} </h4>
+                          <div className="view-btn">
+                            {/* <Link to={data.url}>view details</Link> */}
+                          </div>
+                        </div>
+                      </a>
                     </div>
                   );
                 })}
@@ -653,7 +656,7 @@ const Home = () => {
               <div className="sec-title">
                 <span>Getting Start</span>
                 <h2>Pricing Plan</h2>
-                <p>{priceHeading.title}</p>
+                {/* <p>{priceHeading.title}</p> */}
               </div>
             </div>
             <div className="row justify-content-center">

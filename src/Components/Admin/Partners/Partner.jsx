@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { db } from "../../../firebase";
 import { addDoc, collection } from "firebase/firestore";
+import { Link, useNavigate } from "react-router-dom";
 import {
   getStorage,
   ref,
@@ -16,7 +17,7 @@ import {
 
 const Partner = () => {
   const [image, setImage] = useState(null);
-
+  const navigate = useNavigate();
   const dataCollection = collection(db, "partners");
 
   // };
@@ -39,6 +40,7 @@ const Partner = () => {
     } catch (error) {
       alert("Data Fail", error);
     }
+    navigate("/viewpartner");
   };
 
   return (

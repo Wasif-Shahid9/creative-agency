@@ -25,17 +25,18 @@ import { FaPlay } from "react-icons/fa";
 
 const About = () => {
   const [aboutDataChoose, setAboutDataChoose] = useState([]);
+  const [abotDataKnow, setAboutDataKnow] = useState([]);
   const userCollection = collection(db, "about_us");
   useEffect(() => {
     const getUsers = async () => {
       const singleRef = doc(userCollection, "whay_chose_us");
       const data = await getDoc(singleRef);
       setAboutDataChoose(data.data());
-      console.log(data.data());
+      console.log("abc", data.data());
     };
     getUsers();
   }, []);
-  const [abotDataKnow, setAboutDataKnow] = useState([]);
+
   useEffect(() => {
     const getUsers = async () => {
       const singleRef = doc(userCollection, "get_to_know");
@@ -113,8 +114,8 @@ const About = () => {
               <div className="col-lg-6">
                 <div className="why-choose-right">
                   <div className="sec-title layout2">
-                    <span> {aboutDataChoose.title} </span>
-                    <h2>{aboutDataChoose.detail}</h2>
+                    <span> Why Choose </span>
+                    <h2> {aboutDataChoose.title}</h2>
                   </div>
                   <div className="counter-boxes">
                     <div className="count-box">
@@ -133,16 +134,7 @@ const About = () => {
                       <h5>Expert Teams</h5>
                     </div>
                   </div>
-                  <p>
-                    Integer purus odio, placerat nec rhoncus in, ullamcorper nec
-                    dolor. className onlin aptent taciti sociosqu ad litora
-                    torquent per conubia nostra, per inceptos only himenaeos.
-                    Praesent nec neque at dolor venenatis consectetur eu quis
-                    ex. the Donec lacinia placerat felis non aliquam.Mauris nec
-                    justo vitae ante auctor tol euismod sit amet non ipsum.
-                    Praesent commodo at massa eget suscipit. Utani vitae enim
-                    velit. Ut ut posuere orci, id dapibus odio.
-                  </p>
+                  <p>{aboutDataChoose.detail}</p>
                   <div className="buttons-group">
                     <span>24/7 Support</span>
                     <span>Unique Design</span>

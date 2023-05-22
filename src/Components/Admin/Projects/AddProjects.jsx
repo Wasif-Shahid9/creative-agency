@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import NestedList from "../Drawer";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -23,6 +24,8 @@ const AddProjects = () => {
   const projectCollection = collection(db, "projects");
   console.log("Project", projectCollection);
 
+  const navigate = useNavigate();
+
   const handleProjectAdd = async (e) => {
     e.preventDefault();
     try {
@@ -44,11 +47,12 @@ const AddProjects = () => {
     } catch (error) {
       alert("Data Fail", error);
     }
+    navigate("/viewprojects");
   };
   return (
     <>
       <Grid container justifyContent="center">
-        <Grid item xs={12} sm={4} md={4} lg={3}>
+        <Grid item xs={12} sm={4} md={3} lg={3}>
           <NestedList />
         </Grid>
         <Grid item xs={12} sm={8} md={9} lg={9} container>

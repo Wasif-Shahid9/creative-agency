@@ -55,7 +55,8 @@ const ViewPartners = () => {
                   return (
                     <>
                       <tr>
-                        <td> {data.image} </td>
+                        {/* <td> {data.image} </td> */}
+                        <img src={data.image} alt="" />
                         <td>
                           <button
                             onClick={() => handleDelete(data.id)}

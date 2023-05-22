@@ -10,12 +10,11 @@
 @media screen and (max-width: 600px) {
   .addProject__form {
     /* overflow-x: hidden; */
-    border: 2px solid red;
+
     margin: auto;
     width: 80%;
   }
-  .addproject__input{
+  .addproject__input {
     /* border: 2px solid red; */
-  
   }
 }

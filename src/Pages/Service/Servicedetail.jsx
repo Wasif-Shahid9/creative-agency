@@ -14,6 +14,7 @@ import { useLocation } from "react-router-dom";
 const Servicedetail = () => {
   const { state } = useLocation();
   const [stepsData, setStepsData] = useState([]);
+  const [serviceData, setServiceData] = useState([]);
 
   useEffect(() => {
     const servicesRef = collection(db, "services");
@@ -29,6 +30,15 @@ const Servicedetail = () => {
     });
   }, []);
 
+  const userCollection = collection(db, "services");
+  useEffect(() => {
+    const getUsers = async () => {
+      const data = await getDocs(userCollection);
+      setServiceData(data.docs.map((doc) => doc.data()));
+      console.log(data.docs.map((doc) => doc.data()));
+    };
+    getUsers();
+  }, []);
   return (
     <>
       <Navb />
@@ -82,9 +92,8 @@ const Servicedetail = () => {
             <div className="row">
               <div className="col-lg-8">
                 <div className="service-details-content">
-                  <img src={image} alt="" />
                   <h3>
-                    <img src={state.icon} alt="firebase" /> <br />
+                    <img src={state.image} alt="firebase" /> <br />
                     {state.title}
                   </h3>
                   <p>{state.detail}</p>
@@ -95,35 +104,13 @@ const Servicedetail = () => {
                   <h4>Category</h4>
                   <ul className="category">
                     <li>
-                      <Link to="/project">
-                        Web Design<i className="bi bi-arrow-right"></i>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/project">
-                        Apps Development<i className="bi bi-arrow-right"></i>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/project">
-                        Software Development
-                        <i className="bi bi-arrow-right"></i>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/project">
-                        Motion Graphics<i className="bi bi-arrow-right"></i>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/project">
-                        UI/UX Design<i className="bi bi-arrow-right"></i>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/project">
-                        Graphic Design<i className="bi bi-arrow-right"></i>
-                      </Link>
+                      {serviceData.map((data) => {
+                        return (
+                          <>
+                            <Link to="/"> {data.title} </Link>
+                          </>
+                        );
+                      })}
                     </li>
                   </ul>
                 </div>

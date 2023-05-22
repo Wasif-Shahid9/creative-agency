@@ -33,7 +33,7 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import StarBorder from "@mui/icons-material/StarBorder";
 import { AiOutlineHome } from "react-icons/ai";
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 
 const NestedList = (props) => {
   const [aboutOpen, setAboutOpen] = useState(false);
@@ -104,6 +104,14 @@ const NestedList = (props) => {
               <ListItemIcon></ListItemIcon>
               <Link to="/admin">
                 <ListItemText primary="Add Service" />
+              </Link>
+            </ListItemButton>
+          </List>
+          <List component="div" disablePadding>
+            <ListItemButton sx={{ pl: 4 }}>
+              <ListItemIcon></ListItemIcon>
+              <Link to="/showsteps">
+                <ListItemText primary="Show Steps" />
               </Link>
             </ListItemButton>
           </List>

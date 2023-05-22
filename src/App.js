@@ -24,6 +24,7 @@ import ViewProjects from "./Components/Admin/Projects/ViewProjects";
 import UpdateProject from "./Components/Admin/Projects/UpdateProject";
 import Partner from "./Components/Admin/Partners/Partner";
 import ViewPartners from "./Components/Admin/Partners/ViewPartners";
+import ShowSteps from "./Components/Admin/ShowSteps";
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -69,6 +70,7 @@ function App() {
             <Route path="/updateproject" element={<UpdateProject />}></Route>
             <Route path="/partner" element={<Partner />}></Route>
             <Route path="/viewpartner" element={<ViewPartners />}></Route>
+            <Route path="/showsteps" element={<ShowSteps />}></Route>
           </Routes>
         </Router>
       )}

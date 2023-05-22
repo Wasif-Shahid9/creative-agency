@@ -23,6 +23,3 @@ export const getClientComments = async (section) => {
   const docData = await getDoc(clientComment);
   return docData.data();
 };
-
-
-
