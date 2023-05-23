@@ -13,12 +13,13 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 const Servicedetail = () => {
   const { state } = useLocation();
+
   const [stepsData, setStepsData] = useState([]);
   const [serviceData, setServiceData] = useState([]);
 
   useEffect(() => {
     const servicesRef = collection(db, "services");
-    const serviceDocRef = doc(servicesRef, "FvMNSJeeMzJ1wWKwfAc9");
+    const serviceDocRef = doc(servicesRef, state.id);
     const stepsRef = collection(serviceDocRef, "steps");
 
     getDocs(stepsRef).then((querySnapshot) => {
@@ -26,6 +27,7 @@ const Servicedetail = () => {
       querySnapshot.forEach((doc) => {
         data.push(doc.data());
       });
+      console.log("Steps...", data);
       setStepsData(data);
     });
   }, []);
@@ -35,7 +37,6 @@ const Servicedetail = () => {
     const getUsers = async () => {
       const data = await getDocs(userCollection);
       setServiceData(data.docs.map((doc) => doc.data()));
-      console.log(data.docs.map((doc) => doc.data()));
     };
     getUsers();
   }, []);
@@ -107,7 +108,9 @@ const Servicedetail = () => {
                       {serviceData.map((data) => {
                         return (
                           <>
-                            <Link to="/"> {data.title} </Link>
+                            <div key={data.id}>
+                              <Link to="/"> {data.title} </Link>
+                            </div>
                           </>
                         );
                       })}
@@ -191,7 +194,7 @@ const Servicedetail = () => {
                     const imageColumn = (
                       <div className="col-lg-6">
                         <div className="single-details-thumb">
-                          <img src={data.image} alt="" />
+                          <img src={data.img} alt="" />
                         </div>
                       </div>
                     );
@@ -208,7 +211,7 @@ const Servicedetail = () => {
 
                     return (
                       <React.Fragment key={index}>
-                        <div className="row">
+                        <div className="row serviceDetail__column">
                           {isEven ? (
                             <>
                               {detailsColumn}

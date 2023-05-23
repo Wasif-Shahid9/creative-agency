@@ -25,6 +25,7 @@ import UpdateProject from "./Components/Admin/Projects/UpdateProject";
 import Partner from "./Components/Admin/Partners/Partner";
 import ViewPartners from "./Components/Admin/Partners/ViewPartners";
 import ShowSteps from "./Components/Admin/ShowSteps";
+import HeaderSlider from "./Components/Admin/HeaderSlider";
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -71,6 +72,7 @@ function App() {
             <Route path="/partner" element={<Partner />}></Route>
             <Route path="/viewpartner" element={<ViewPartners />}></Route>
             <Route path="/showsteps" element={<ShowSteps />}></Route>
+            <Route path="/headerslider" element={<HeaderSlider />}></Route>
           </Routes>
         </Router>
       )}

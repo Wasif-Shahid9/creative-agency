@@ -173,7 +173,7 @@ const Home = () => {
         <section className="hero-area">
           <div className="ken-burns-slideshow">
             <img src={sliderData.image} alt="image" />
-            <img src={headerimg} alt="" />
+            {/* <img src={headerimg} alt="" /> */}
           </div>
           <div className="verticale-social">
             <ul className="vertical-media">

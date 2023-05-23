@@ -114,15 +114,14 @@ function Admin(props) {
   };
   const editorConfig = {
     placeholder: "Detail",
-    toolbar: ["bold", "italic"],
   };
 
   ////////////////////////// Firebase End
 
-  function removeTags(html) {
-    const doc = new DOMParser().parseFromString(html, "text/html");
-    return doc.body.textContent || "";
-  }
+  // function removeTags(html) {
+  //   const doc = new DOMParser().parseFromString(html, "html/text");
+  //   return doc.body.textContent || "";
+  // }
 
   return (
     <>
@@ -234,8 +233,9 @@ function Admin(props) {
               }}
               onChange={(event, editor) => {
                 const data = editor.getData();
-                const plainText = removeTags(data);
-                setDetail(plainText);
+                // const plainText = removeTags(data);
+                // setDetail(plainText);
+                setDetail(data);
               }}
             />
           </div>

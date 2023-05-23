@@ -24,8 +24,7 @@ const CardSlider = () => {
   useEffect(() => {
     const getUsers = async () => {
       const data = await getDocs(userCollection);
-      setUser(data.docs.map((doc) => doc.data()));
-      console.log(7)
+      setUser(data.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
     };
     getUsers();
   }, []);

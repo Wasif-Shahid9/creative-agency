@@ -40,6 +40,7 @@ const NestedList = (props) => {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [projectsOpen, setProjectsOpen] = useState(false);
   const [partnerOpen, setPartnerOpen] = useState(false);
+  const [homeslider, setHomeSlider] = useState(false);
 
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -60,6 +61,9 @@ const NestedList = (props) => {
   };
   const handlePartnerClick = () => {
     setPartnerOpen(!partnerOpen);
+  };
+  const handleHomeClick = () => {
+    setHomeSlider(!homeslider);
   };
   const drawer = (
     <div>
@@ -177,6 +181,23 @@ const NestedList = (props) => {
               <ListItemIcon></ListItemIcon>
               <Link to="/viewpartner">
                 <ListItemText primary="View  Partners" />
+              </Link>
+            </ListItemButton>
+          </List>
+        </Collapse>
+        <ListItemButton onClick={handleHomeClick}>
+          <ListItemIcon>
+            <SiHandshake />
+          </ListItemIcon>
+          <ListItemText primary="Home Slider" />
+          {homeslider ? <ExpandLess /> : <ExpandMore />}
+        </ListItemButton>
+        <Collapse in={homeslider} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            <ListItemButton sx={{ pl: 4 }}>
+              <ListItemIcon></ListItemIcon>
+              <Link to="/headerslider">
+                <ListItemText primary="Edit Slider" />
               </Link>
             </ListItemButton>
           </List>

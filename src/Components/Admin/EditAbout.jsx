@@ -148,7 +148,6 @@ const EditAbout = () => {
         <Grid item xs={12} sm={4} md={4} lg={3}>
           <h1></h1>
         </Grid>
-
         <Grid item xs={12} sm={8} md={8} lg={9} container>
           <form className="editAbout__form ">
             <div className="row">
