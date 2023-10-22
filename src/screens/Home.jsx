@@ -403,7 +403,9 @@ const Home = () => {
             <div className="row g-4 project-items">
               {getProject &&
                 getProject.map((data) => {
-                  {/* console.log("dataHome", data); */}
+                  {
+                    /* console.log("dataHome", data); */
+                  }
                   return (
                     <div
                       key={data.id}
@@ -411,9 +413,7 @@ const Home = () => {
                     >
                       <a href="/" target="_blank">
                         <div className="item-img">
-                          <a href="">
-                            <img src={data.image} alt="" />
-                          </a>
+                          <img src={data.image} alt="Error" />
                         </div>
                         <div className="item-inner-cnt">
                           <span> {data.detail} </span>

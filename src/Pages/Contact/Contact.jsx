@@ -240,7 +240,7 @@ const Contact = () => {
                           name="name"
                           className="form-control form-input"
                           placeholder="Enter Your Name"
-                          autoComplete
+                          autoComplete="true"
                         />
                         <ErrorMessage
                           name="name"
@@ -255,7 +255,7 @@ const Contact = () => {
                           name="email"
                           className="form-control form-input"
                           placeholder="Enter Your Email"
-                          autoComplete
+                          autoComplete="true"
                         />
                         <ErrorMessage
                           name="email"
@@ -270,7 +270,7 @@ const Contact = () => {
                           name="subject"
                           className="form-control form-input"
                           placeholder="Enter Your Subject"
-                          autoComplete
+                          autoComplete="true"
                         />
                         <ErrorMessage
                           name="subject"
@@ -285,7 +285,7 @@ const Contact = () => {
                           name="message"
                           className="form-control form-input "
                           placeholder="Enter Your Message"
-                          autoComplete
+                          autoComplete="true"
                         />
                         <ErrorMessage
                           name="message"

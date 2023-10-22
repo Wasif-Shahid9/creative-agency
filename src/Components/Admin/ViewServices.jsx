@@ -79,7 +79,13 @@ const ViewServices = () => {
         </Grid>
         {viewServices ? (
           <Grid item xs={12} sm={8} md={8} lg={9} container>
-            <Table striped bordered hover className="table" responsive="md">
+            <Table
+              striped="true"
+              bordered
+              hover
+              className="table"
+              responsive="md"
+            >
               <thead className="table__head">
                 <tr>
                   <th>Title</th>
