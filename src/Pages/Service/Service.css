@@ -1,24 +1,11 @@
-.servicespage {
-  /* border: 2px solid red; */
-}
 .servicespage .icon img {
   /* border: 2px solid red; */
   width: 80px;
   height: 80px;
 }
-/* @media (max-width: 767px) {
-  .row {
-    flex-direction: column;
-    border: 2px solid red;
-  }
 
-  .col-lg-6 {
-    width: 100%;
-  }
-} */
 @media screen and (max-width: 992px) {
   .single-details-thumb {
-    
     margin-top: 20px;
   }
 }
