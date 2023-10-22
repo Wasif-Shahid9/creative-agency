@@ -124,7 +124,6 @@ const UpdateServices = () => {
                 <label className="mt-3">Image</label>
                 <br />
                 <input type="file" onChange={handleImageChange} />
-
                 <img
                   src={imageUrl}
                   alt="Image Preview"

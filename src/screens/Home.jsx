@@ -74,12 +74,12 @@ const Home = () => {
   useEffect(() => {
     const getUsers = async () => {
       const slider = await getHomeSection("slider");
-      console.log("slider..", slider);
+      // console.log("slider..", slider);
       setSliderData(slider);
       const price = await getHomeSection("price");
       setPriceHeading(price);
       const features = await getHomeSection("features");
-      console.log("features", features);
+      // console.log("features", features);
       setFeatureHeading(features);
       const client = await getHomeSection("clients");
       setClientHead(client);
@@ -95,7 +95,12 @@ const Home = () => {
     const projectRef = collection(db, "projects");
     const getData = async () => {
       const docData = await getDocs(projectRef);
-      setgetProject(docData.docs.map((doc) => doc.data()));
+      setgetProject(
+        docData.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }))
+      );
     };
     getData();
   }, []);
@@ -398,6 +403,7 @@ const Home = () => {
             <div className="row g-4 project-items">
               {getProject &&
                 getProject.map((data) => {
+                  {/* console.log("dataHome", data); */}
                   return (
                     <div
                       key={data.id}

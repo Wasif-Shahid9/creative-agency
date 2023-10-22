@@ -20,7 +20,7 @@ const Footer = () => {
     const contactData = async () => {
       const location = await getContactUs("location");
       setLocation(location);
-      console.log("loaction...", location);
+      // console.log("loaction...", location);
       const phone = await getContactUs("phone");
       setPhone(phone);
       const email = await getContactUs("email");
@@ -30,11 +30,19 @@ const Footer = () => {
   }, []);
   const navigate = useNavigate();
   const [user, setUser] = useState([]);
+  // console.log(user);
+
   const userCollection = collection(db, "services");
   useEffect(() => {
     const getUsers = async () => {
       const data = await getDocs(userCollection);
-      setUser(data.docs.map((doc) => doc.data()));
+      // console.log("dataKeys", data.docs);
+      setUser(
+        data.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }))
+      );
     };
     getUsers();
   }, []);
@@ -81,19 +89,24 @@ const Footer = () => {
             <div className="col-md-3 col-lg-3 col-xl-3">
               <div className="footer-widget">
                 <h4>Our Services</h4>
-                {user.map((data) => (
-                  <ul className="footer-menu" key={data.id}>
-                    <li>
-                      <a
-                        onClick={() =>
-                          navigate("/servicedetail", { state: data })
-                        }
-                      >
-                        {data.title}
-                      </a>
-                    </li>
-                  </ul>
-                ))}
+                {user.map((data) => {
+                  return (
+                    <>
+                      <ul className="footer-menu" key={data.id}>
+                        <li>
+                          <a
+                            onClick={() =>
+                              navigate("/servicedetail", { state: data })
+                            }
+                          >
+                            {data.title}
+                          </a>
+                        </li>
+                      </ul>
+                      ;
+                    </>
+                  );
+                })}
               </div>
             </div>
             <div className="col-md-3 col-lg-3 col-xl-3">

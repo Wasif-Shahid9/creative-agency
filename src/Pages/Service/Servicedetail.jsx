@@ -8,7 +8,7 @@ import image2 from "../../template/assets/img/widget-banner-bg.jpg";
 import arrowImg from "../../template/assets/img/arrow-angle.png";
 import headervideo from "../../template/assets/img/breadcrumb-video.jpg";
 import { FaPlay } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useLocation } from "react-router-dom";
 const Servicedetail = () => {

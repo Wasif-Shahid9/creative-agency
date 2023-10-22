@@ -56,8 +56,6 @@ const ViewServices = () => {
     }
   };
 
-  // const container =
-  //   window !== undefined ? () => window().document.body : undefined;
   const container = "";
 
   useEffect(() => {
@@ -65,16 +63,7 @@ const ViewServices = () => {
     console.log(userCollection);
     const getDataTable = async () => {
       const docData = await getDocs(userCollection);
-      // console.log(docData);
-      // setViewServices(
-      //   docData.docs.map((doc) => {
-      //     ...doc.data(), id: doc.id
-      //     const temp = doc.data();
-      //     temp.id = doc.id;
-      //     return temp;
 
-      //   })
-      // );
       setViewServices(
         docData.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
       );
@@ -123,23 +112,7 @@ const ViewServices = () => {
                         Delete
                       </button>
                     </td>
-                    {/* <Link
-                      to={{
-                        pathname: "/updateservice",
-                        state: { serviceData: "hello" },
-                      }}
-                    >
-                      <td>
-                        <button
-                          className="viewDelete__btn"
-                          onClick={() => {
-                            updateData(data.id);
-                          }}
-                        >
-                          Update
-                        </button>
-                      </td>
-                    </Link> */}
+
                     <td>
                       <button className="viewUpdate__btn">
                         <a

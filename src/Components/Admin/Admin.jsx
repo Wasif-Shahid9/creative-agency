@@ -59,7 +59,7 @@ function Admin(props) {
   const [iconFile, setIconFile] = useState(null);
   const [imageFile, setImageFile] = useState(null);
   const [disableBtb, setDisableButton] = useState(true);
-  const dataCollection = collection(db, "services");
+
 
   // const handleAddService = async (e) => {
   //   alert("Message Sent Successfull");
@@ -77,6 +77,7 @@ function Admin(props) {
   //     await addDoc(dataCollection, {
   //       title: title,
 
+  const dataCollection = collection(db, "services");
   const navigate = useNavigate();
   const handleAddService = async (e) => {
     e.preventDefault();
